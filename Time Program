@@ -6,7 +6,7 @@
 ;Used INTERRUPTS
 ;AH=2CH  //Gets the system date
 ;AH=02h // Displays the ascii value in DOS Prompt
-;For 2AH
+;For 2CH
 ; Hours is in CH
 ; Minutes is in CL
 ; Seconds is in DH
