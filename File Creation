@@ -12,7 +12,7 @@
 ; Declaration Part
 .MODEL SMALL
 .DATA
-FILE DB 'C:\PP.DOC',0      ; File Path (Note: Folders are not created, so always create a file inside existing folderor drive). 0 is used to append the file
+FILE DB 'C:\SPP.DOC',0      ; File Path (Note: Folders are not created, so always create a file inside existing folderor drive). 0 is used to append the file
 MSG DB 'File created','$'  ; To display successful message when File is created
 .CODE
 START: MOV AX,@DATA
