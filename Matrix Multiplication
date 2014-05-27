@@ -1,7 +1,7 @@
-;##################################################################
-;# 8086 AIO (All in One)Program to Print and add Prime Numbers    #
-;#       Author: kingspp                                          #
-;##################################################################
+;###############################################
+;# 8086 Program to Multiply two 4x4 Matrices   #
+;#       Author: kingspp                       #
+;###############################################
 ;Declarations
 .MODEL SMALL
 .DATA
