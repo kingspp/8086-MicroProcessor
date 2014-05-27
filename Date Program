@@ -8,7 +8,7 @@
 ;AH=02h // Displays the ascii value in DOS Prompt
 ;For 2AH
 ; Day is in DL
-; Month is in DL
+; Month is in DH
 ; Year is in CX
 
 
