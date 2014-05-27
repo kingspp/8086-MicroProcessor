@@ -1,7 +1,7 @@
-;###########################################
-;# 8086 Program to add two 4x4 Matrices    #
-;#       Author: kingspp                   #
-;###########################################
+;############################################################################
+;# 8086 Program to add two 4x4 Matrices and present result in decimal form  #
+;#       Author: kingspp                                                    #
+;############################################################################
 
 ; Declaration Part
 .MODEL SMALL
