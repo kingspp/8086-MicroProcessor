@@ -1,8 +1,0 @@
-*.tar
-*.tar.*
-*.log
-*.log.*
-*.sig
-*.asm
-pkg/
-src/
