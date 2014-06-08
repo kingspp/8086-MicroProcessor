@@ -1,0 +1,92 @@
+;###############################################
+;# 8086 Program to Multiply two 4x4 Matrices   #
+;#       Author: kingspp                       #
+;###############################################
+;Declarations
+.MODEL SMALL
+.DATA
+M DB 01H,02H,03H,04H  ; Matrix A of Dimension 4x4
+N DB 05H,06H,07H,08H  ; Matrix B of Dimension 4x4
+RES DB ?
+.CODE
+START: MOV AX,@DATA
+MOV DS,AX
+MOV CL,04H
+LEA SI,RES
+MOV CH,04H
+
+;Matrix Part
+;1st Digit
+MOV AL,M
+MOV BL,N
+MOV CH,M+1
+MOV DH,N+2
+CALL MULT
+CALL INIT
+
+;2nd Digit
+MOV AL,M
+MOV BL,N+1
+MOV CH,M+1
+MOV DH,N+3
+CALL MULT
+CALL INIT
+
+;3rd Digit
+MOV AL,M+2
+MOV BL,N
+MOV CH,M+3
+MOV DH,N+2
+CALL MULT
+CALL INIT
+
+
+;4th Digit
+MOV AL,M+2
+MOV BL,N+1
+MOV CH,M+3
+MOV DH,N+3
+CALL MULT
+CALL INIT
+
+INT 3H         ; Terminate the Program
+
+;Multiplication and Addition Part
+MULT PROC
+MUL BL
+CALL H2D       ;Called to Convert Hexadecimal to Decimal
+MOV [SI] ,AH
+MOV AL,CH
+MOV BL,DH
+MUL BL
+CALL H2D       ;Called to Convert Hexadecimal to Decimal
+ADD AH,[SI]    ;Addition of Previous with the current value
+MOV AL,AH      ;Since DAA works on only AL
+DAA            ;Decimal Adjust After Addition
+MOV [SI],AL
+INC SI
+RET
+MULT ENDP
+
+
+; Hexadecimal to Decimal Part
+H2D PROC
+AAM            ;ASCII Adjust after Multiplication, Convert Hexadecimal to Unpacked BCD
+ROL AH,CL      ;Left Rotate, for conversion of Unpacked BCD to Packed BCD
+ADD AH,AL
+RET
+H2D ENDP
+
+;Initialization Part
+INIT PROC
+MOV AX,0000H
+MOV BX,0000H
+MOV CX,0000H
+MOV DX,0000H
+MOV CL,04H     ;Initialize CL for the purpose of Rotation
+RET
+INIT ENDP
+
+
+END START
+
