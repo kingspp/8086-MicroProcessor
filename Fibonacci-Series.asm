@@ -18,7 +18,6 @@ MOV BX,01H       ; Default No
 
 ;Fibonacci Part
 L1:ADD AX,BX
-DAA              ; Used to Present the value in Decimal Form
 MOV [SI],AX
 MOV AX,BX
 MOV BX,[SI]
