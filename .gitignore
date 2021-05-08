@@ -3,6 +3,5 @@
 *.log
 *.log.*
 *.sig
-*.asm
 pkg/
 src/
